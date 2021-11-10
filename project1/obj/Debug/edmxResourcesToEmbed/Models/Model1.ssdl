@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="project1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="basic">
+    <Key>
+      <PropertyRef Name="empid" />
+    </Key>
+    <Property Name="empid" Type="int" Nullable="false" />
+    <Property Name="empname" Type="nvarchar" MaxLength="20" />
+    <Property Name="emptype" Type="nvarchar" MaxLength="20" />
+    <Property Name="deptid" Type="int" />
+    <Property Name="dob" Type="date" />
+    <Property Name="email" Type="nvarchar" MaxLength="20" />
+    <Property Name="mobile" Type="nvarchar" MaxLength="20" />
+    <Property Name="address" Type="nvarchar" MaxLength="20" />
+    <Property Name="dateofjoin" Type="date" />
+    <Property Name="gender" Type="varchar" MaxLength="20" />
+    <Property Name="emp_photo_path" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="dept_id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="dept_id" Type="int" Nullable="false" />
+    <Property Name="dept_name" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="education">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empid" Type="int" />
+    <Property Name="Tenth_percentage" Type="nvarchar" MaxLength="20" />
+    <Property Name="Tenth_yop" Type="int" />
+    <Property Name="Twelfth_percentage" Type="nvarchar" MaxLength="20" />
+    <Property Name="Twelfth_yop" Type="int" />
+    <Property Name="UG_percentage" Type="nvarchar" MaxLength="20" />
+    <Property Name="UG_yop" Type="int" />
+    <Property Name="PG_percentage" Type="nvarchar" MaxLength="20" />
+    <Property Name="PG_yop" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="forgot">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="emailid" Type="nvarchar" MaxLength="40" />
+    <Property Name="securityquestion" Type="nvarchar" MaxLength="100" />
+    <Property Name="securityanswer" Type="nvarchar" MaxLength="100" />
+    <Property Name="newpassword" Type="nvarchar" MaxLength="20" />
+    <Property Name="confirmpassword" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="leave">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empid" Type="int" />
+    <Property Name="typeofleave" Type="varchar" MaxLength="250" />
+    <Property Name="startdate" Type="date" />
+    <Property Name="enddate" Type="date" />
+    <Property Name="comments" Type="nvarchar" MaxLength="250" />
+    <Property Name="ApplyforLeave" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="emailid" Type="nvarchar" MaxLength="40" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="raise">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empid" Type="int" />
+    <Property Name="curloc" Type="varchar" MaxLength="250" />
+    <Property Name="precontim" Type="varchar" MaxLength="250" />
+    <Property Name="shortdes" Type="nvarchar" MaxLength="500" />
+    <Property Name="des" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="signup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" MaxLength="40" />
+    <Property Name="empid" Type="nvarchar" MaxLength="40" />
+    <Property Name="mobileno" Type="nvarchar" MaxLength="15" />
+    <Property Name="dob" Type="date" />
+    <Property Name="emailid" Type="nvarchar" MaxLength="40" />
+    <Property Name="password" Type="nvarchar" MaxLength="20" />
+    <Property Name="confirmpassword" Type="nvarchar" MaxLength="20" />
+    <Property Name="securityquestion" Type="nvarchar" MaxLength="100" />
+    <Property Name="securityanswer" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="skills">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empid" Type="int" />
+    <Property Name="primary_skills" Type="nvarchar" MaxLength="20" />
+    <Property Name="other_skills" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="work">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="empid" Type="int" />
+    <Property Name="previous_emp_comp_name" Type="nvarchar" MaxLength="10" />
+    <Property Name="year_exp" Type="nvarchar" MaxLength="20" />
+    <Property Name="work_domain" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <Association Name="FK__basic__deptid__2C3393D0">
+    <End Role="department" Type="Self.department" Multiplicity="0..1" />
+    <End Role="basic" Type="Self.basic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department">
+        <PropertyRef Name="dept_id" />
+      </Principal>
+      <Dependent Role="basic">
+        <PropertyRef Name="deptid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__education__empid__2F10007B">
+    <End Role="basic" Type="Self.basic" Multiplicity="0..1" />
+    <End Role="education" Type="Self.education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="education">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__leave__empid__37A5467C">
+    <End Role="basic" Type="Self.basic" Multiplicity="0..1" />
+    <End Role="leave" Type="Self.leave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="leave">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__raise__empid__3A81B327">
+    <End Role="basic" Type="Self.basic" Multiplicity="0..1" />
+    <End Role="raise" Type="Self.raise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="raise">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__skills__empid__34C8D9D1">
+    <End Role="basic" Type="Self.basic" Multiplicity="0..1" />
+    <End Role="skills" Type="Self.skills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="skills">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__work__empid__31EC6D26">
+    <End Role="basic" Type="Self.basic" Multiplicity="0..1" />
+    <End Role="work" Type="Self.work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="work">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="project1ModelStoreContainer">
+    <EntitySet Name="basic" EntityType="Self.basic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="department" EntityType="Self.department" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="education" EntityType="Self.education" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="forgot" EntityType="Self.forgot" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="leave" EntityType="Self.leave" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="login" EntityType="Self.login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="raise" EntityType="Self.raise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="signup" EntityType="Self.signup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="skills" EntityType="Self.skills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="work" EntityType="Self.work" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__basic__deptid__2C3393D0" Association="Self.FK__basic__deptid__2C3393D0">
+      <End Role="department" EntitySet="department" />
+      <End Role="basic" EntitySet="basic" />
+    </AssociationSet>
+    <AssociationSet Name="FK__education__empid__2F10007B" Association="Self.FK__education__empid__2F10007B">
+      <End Role="basic" EntitySet="basic" />
+      <End Role="education" EntitySet="education" />
+    </AssociationSet>
+    <AssociationSet Name="FK__leave__empid__37A5467C" Association="Self.FK__leave__empid__37A5467C">
+      <End Role="basic" EntitySet="basic" />
+      <End Role="leave" EntitySet="leave" />
+    </AssociationSet>
+    <AssociationSet Name="FK__raise__empid__3A81B327" Association="Self.FK__raise__empid__3A81B327">
+      <End Role="basic" EntitySet="basic" />
+      <End Role="raise" EntitySet="raise" />
+    </AssociationSet>
+    <AssociationSet Name="FK__skills__empid__34C8D9D1" Association="Self.FK__skills__empid__34C8D9D1">
+      <End Role="basic" EntitySet="basic" />
+      <End Role="skills" EntitySet="skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__work__empid__31EC6D26" Association="Self.FK__work__empid__31EC6D26">
+      <End Role="basic" EntitySet="basic" />
+      <End Role="work" EntitySet="work" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

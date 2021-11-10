@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="project1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="basic">
+    <Key>
+      <PropertyRef Name="empid" />
+    </Key>
+    <Property Name="empid" Type="Int32" Nullable="false" />
+    <Property Name="empname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="emptype" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="deptid" Type="Int32" />
+    <Property Name="dob" Type="DateTime" Precision="0" />
+    <Property Name="email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="address" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="dateofjoin" Type="DateTime" Precision="0" />
+    <Property Name="gender" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="emp_photo_path" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="department" Relationship="Self.FK__basic__deptid__2C3393D0" FromRole="basic" ToRole="department" />
+    <NavigationProperty Name="educations" Relationship="Self.FK__education__empid__2F10007B" FromRole="basic" ToRole="education" />
+    <NavigationProperty Name="skills" Relationship="Self.FK__skills__empid__34C8D9D1" FromRole="basic" ToRole="skills" />
+    <NavigationProperty Name="works" Relationship="Self.FK__work__empid__31EC6D26" FromRole="basic" ToRole="work" />
+    <NavigationProperty Name="leaves" Relationship="project1Model.FK__leave__empid__37A5467C" FromRole="basic" ToRole="leave" />
+    <NavigationProperty Name="raises" Relationship="project1Model.FK__raise__empid__3A81B327" FromRole="basic" ToRole="raise" />
+  </EntityType>
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="dept_id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dept_id" Type="Int32" Nullable="false" />
+    <Property Name="dept_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="basics" Relationship="Self.FK__basic__deptid__2C3393D0" FromRole="department" ToRole="basic" />
+  </EntityType>
+  <EntityType Name="education">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empid" Type="Int32" />
+    <Property Name="Tenth_percentage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Tenth_yop" Type="Int32" />
+    <Property Name="Twelfth_percentage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Twelfth_yop" Type="Int32" />
+    <Property Name="UG_percentage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UG_yop" Type="Int32" />
+    <Property Name="PG_percentage" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PG_yop" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="basic" Relationship="Self.FK__education__empid__2F10007B" FromRole="education" ToRole="basic" />
+  </EntityType>
+  <EntityType Name="forgot">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emailid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="securityquestion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="securityanswer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="newpassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="confirmpassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emailid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="signup">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="empid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="mobileno" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="dob" Type="DateTime" Precision="0" />
+    <Property Name="emailid" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="confirmpassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="securityquestion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="securityanswer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="skill">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empid" Type="Int32" />
+    <Property Name="primary_skills" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="other_skills" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="basic" Relationship="Self.FK__skills__empid__34C8D9D1" FromRole="skills" ToRole="basic" />
+  </EntityType>
+  <EntityType Name="work">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empid" Type="Int32" />
+    <Property Name="previous_emp_comp_name" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="year_exp" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="work_domain" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="basic" Relationship="Self.FK__work__empid__31EC6D26" FromRole="work" ToRole="basic" />
+  </EntityType>
+  <Association Name="FK__basic__deptid__2C3393D0">
+    <End Role="department" Type="Self.department" Multiplicity="0..1" />
+    <End Role="basic" Type="Self.basic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department">
+        <PropertyRef Name="dept_id" />
+      </Principal>
+      <Dependent Role="basic">
+        <PropertyRef Name="deptid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__education__empid__2F10007B">
+    <End Role="basic" Type="Self.basic" Multiplicity="0..1" />
+    <End Role="education" Type="Self.education" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="education">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__skills__empid__34C8D9D1">
+    <End Role="basic" Type="Self.basic" Multiplicity="0..1" />
+    <End Role="skills" Type="Self.skill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="skills">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__work__empid__31EC6D26">
+    <End Role="basic" Type="Self.basic" Multiplicity="0..1" />
+    <End Role="work" Type="Self.work" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="work">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="project1Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="basics" EntityType="Self.basic" />
+    <EntitySet Name="departments" EntityType="Self.department" />
+    <EntitySet Name="educations" EntityType="Self.education" />
+    <EntitySet Name="forgots" EntityType="Self.forgot" />
+    <EntitySet Name="logins" EntityType="Self.login" />
+    <EntitySet Name="signups" EntityType="Self.signup" />
+    <EntitySet Name="skills" EntityType="Self.skill" />
+    <EntitySet Name="works" EntityType="Self.work" />
+    <AssociationSet Name="FK__basic__deptid__2C3393D0" Association="Self.FK__basic__deptid__2C3393D0">
+      <End Role="department" EntitySet="departments" />
+      <End Role="basic" EntitySet="basics" />
+    </AssociationSet>
+    <AssociationSet Name="FK__education__empid__2F10007B" Association="Self.FK__education__empid__2F10007B">
+      <End Role="basic" EntitySet="basics" />
+      <End Role="education" EntitySet="educations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__skills__empid__34C8D9D1" Association="Self.FK__skills__empid__34C8D9D1">
+      <End Role="basic" EntitySet="basics" />
+      <End Role="skills" EntitySet="skills" />
+    </AssociationSet>
+    <AssociationSet Name="FK__work__empid__31EC6D26" Association="Self.FK__work__empid__31EC6D26">
+      <End Role="basic" EntitySet="basics" />
+      <End Role="work" EntitySet="works" />
+    </AssociationSet>
+    <EntitySet Name="leaves" EntityType="project1Model.leave" />
+    <EntitySet Name="raises" EntityType="project1Model.raise" />
+    <AssociationSet Name="FK__leave__empid__37A5467C" Association="project1Model.FK__leave__empid__37A5467C">
+      <End Role="basic" EntitySet="basics" />
+      <End Role="leave" EntitySet="leaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK__raise__empid__3A81B327" Association="project1Model.FK__raise__empid__3A81B327">
+      <End Role="basic" EntitySet="basics" />
+      <End Role="raise" EntitySet="raises" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="leave">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empid" Type="Int32" />
+    <Property Name="typeofleave" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="startdate" Type="DateTime" Precision="0" />
+    <Property Name="enddate" Type="DateTime" Precision="0" />
+    <Property Name="comments" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ApplyforLeave" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="basic" Relationship="project1Model.FK__leave__empid__37A5467C" FromRole="leave" ToRole="basic" />
+  </EntityType>
+  <EntityType Name="raise">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empid" Type="Int32" />
+    <Property Name="curloc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="precontim" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="shortdes" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="des" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="basic" Relationship="project1Model.FK__raise__empid__3A81B327" FromRole="raise" ToRole="basic" />
+  </EntityType>
+  <Association Name="FK__leave__empid__37A5467C">
+    <End Type="project1Model.basic" Role="basic" Multiplicity="0..1" />
+    <End Type="project1Model.leave" Role="leave" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="leave">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__raise__empid__3A81B327">
+    <End Type="project1Model.basic" Role="basic" Multiplicity="0..1" />
+    <End Type="project1Model.raise" Role="raise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="raise">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
