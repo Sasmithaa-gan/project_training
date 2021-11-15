@@ -11,12 +11,18 @@ namespace project1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class skill
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Please enter Employee ID")]
+        [Display(Name = "Employee ID : ")]
         public Nullable<int> empid { get; set; }
+        [Required]
+        [Display(Name = "Primary Skills :")]
         public string primary_skills { get; set; }
+        [Display(Name = "Other Skills: ")]
         public string other_skills { get; set; }
     
         public virtual basic basic { get; set; }

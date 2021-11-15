@@ -21,6 +21,7 @@
     <NavigationProperty Name="works" Relationship="Self.FK__work__empid__31EC6D26" FromRole="basic" ToRole="work" />
     <NavigationProperty Name="leaves" Relationship="project1Model.FK__leave__empid__37A5467C" FromRole="basic" ToRole="leave" />
     <NavigationProperty Name="raises" Relationship="project1Model.FK__raise__empid__3A81B327" FromRole="basic" ToRole="raise" />
+    <NavigationProperty Name="reimburses" Relationship="project1Model.FK__reimburse__empid__4316F928" FromRole="basic" ToRole="reimburse" />
   </EntityType>
   <EntityType Name="department">
     <Key>
@@ -80,6 +81,7 @@
     <Property Name="confirmpassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="securityquestion" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="securityanswer" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="UserRolesMappings" Relationship="project1Model.FK__UserRoles__UserI__3F466844" FromRole="signup" ToRole="UserRolesMapping" />
   </EntityType>
   <EntityType Name="skill">
     <Key>
@@ -185,6 +187,21 @@
       <End Role="basic" EntitySet="basics" />
       <End Role="raise" EntitySet="raises" />
     </AssociationSet>
+    <EntitySet Name="RoleMasters" EntityType="project1Model.RoleMaster" />
+    <EntitySet Name="UserRolesMappings" EntityType="project1Model.UserRolesMapping" />
+    <AssociationSet Name="FK__UserRoles__RoleI__403A8C7D" Association="project1Model.FK__UserRoles__RoleI__403A8C7D">
+      <End Role="RoleMaster" EntitySet="RoleMasters" />
+      <End Role="UserRolesMapping" EntitySet="UserRolesMappings" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserRoles__UserI__3F466844" Association="project1Model.FK__UserRoles__UserI__3F466844">
+      <End Role="signup" EntitySet="signups" />
+      <End Role="UserRolesMapping" EntitySet="UserRolesMappings" />
+    </AssociationSet>
+    <EntitySet Name="reimburses" EntityType="project1Model.reimburse" />
+    <AssociationSet Name="FK__reimburse__empid__4316F928" Association="project1Model.FK__reimburse__empid__4316F928">
+      <End Role="basic" EntitySet="basics" />
+      <End Role="reimburse" EntitySet="reimburses" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="leave">
     <Key>
@@ -231,6 +248,76 @@
         <PropertyRef Name="empid" />
       </Principal>
       <Dependent Role="raise">
+        <PropertyRef Name="empid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RoleMaster">
+    <Key>
+      <PropertyRef Name="userid" />
+    </Key>
+    <Property Name="userid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RollName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="UserRolesMappings" Relationship="project1Model.FK__UserRoles__RoleI__403A8C7D" FromRole="RoleMaster" ToRole="UserRolesMapping" />
+  </EntityType>
+  <EntityType Name="UserRolesMapping">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RoleMaster" Relationship="project1Model.FK__UserRoles__RoleI__403A8C7D" FromRole="UserRolesMapping" ToRole="RoleMaster" />
+    <NavigationProperty Name="signup" Relationship="project1Model.FK__UserRoles__UserI__3F466844" FromRole="UserRolesMapping" ToRole="signup" />
+  </EntityType>
+  <Association Name="FK__UserRoles__RoleI__403A8C7D">
+    <End Type="project1Model.RoleMaster" Role="RoleMaster" Multiplicity="1" />
+    <End Type="project1Model.UserRolesMapping" Role="UserRolesMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoleMaster">
+        <PropertyRef Name="userid" />
+      </Principal>
+      <Dependent Role="UserRolesMapping">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserRoles__UserI__3F466844">
+    <End Type="project1Model.signup" Role="signup" Multiplicity="1" />
+    <End Type="project1Model.UserRolesMapping" Role="UserRolesMapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="signup">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="UserRolesMapping">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="reimburse">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="empid" Type="Int32" />
+    <Property Name="ct" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="bno" Type="Int32" />
+    <Property Name="bd" Type="DateTime" Precision="0" />
+    <Property Name="bamnt" Type="Int32" />
+    <Property Name="gstamnt" Type="Int32" />
+    <Property Name="baamnt" Type="Int32" />
+    <Property Name="remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="segstin" Type="Int32" />
+    <NavigationProperty Name="basic" Relationship="project1Model.FK__reimburse__empid__4316F928" FromRole="reimburse" ToRole="basic" />
+  </EntityType>
+  <Association Name="FK__reimburse__empid__4316F928">
+    <End Type="project1Model.basic" Role="basic" Multiplicity="0..1" />
+    <End Type="project1Model.reimburse" Role="reimburse" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="basic">
+        <PropertyRef Name="empid" />
+      </Principal>
+      <Dependent Role="reimburse">
         <PropertyRef Name="empid" />
       </Dependent>
     </ReferentialConstraint>

@@ -35,5 +35,8 @@ namespace project1.Models
         public virtual DbSet<work> works { get; set; }
         public virtual DbSet<leave> leaves { get; set; }
         public virtual DbSet<raise> raises { get; set; }
+        public virtual DbSet<RoleMaster> RoleMasters { get; set; }
+        public virtual DbSet<UserRolesMapping> UserRolesMappings { get; set; }
+        public virtual DbSet<reimburse> reimburses { get; set; }
     }
 }

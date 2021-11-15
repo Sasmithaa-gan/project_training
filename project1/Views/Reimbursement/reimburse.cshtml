@@ -1,0 +1,149 @@
+﻿@model project1.Models.reimburse
+
+@{
+    ViewBag.Title = "reimburse";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        .form-horizontal {
+            padding-left: 30%;
+        }
+
+        .button {
+            background-color: royalblue;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h2 style="color:black" align="center"><b>Expenses Application</b></h2>
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.empid, "empid", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.empid, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.empid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ct, "Type of claim", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("type of claim", new List<SelectListItem>
+                              {/*new SelectListItem{Text="---Type---",Value="---type---",Selected=true},*/
+                              new SelectListItem{Text="LTA",Value="1" },
+                               new SelectListItem{Text="Vehicle Maintennece",Value="2" },
+                                new SelectListItem{Text="Computer",Value="3" },
+                                 new SelectListItem{Text="Mobile Phone",Value="4" },
+                                  new SelectListItem{Text="Self Education",Value="5" },
+                                   new SelectListItem{Text="Telephone bill",Value="6" },
+                                    new SelectListItem{Text="Vehicle fuel",Value="7" },
+                                     new SelectListItem{Text="Vehicle Maintenece",Value="8" } },
+                                     "Select Type of Claim", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ct, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.bno, "Bill no", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.bno, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.bno, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.bd, "Bill date", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.bd, new { htmlAttributes = new { @class = "form-control", @placeholder = "yyyy-MM-dd" } })
+                    @Html.ValidationMessageFor(model => model.bd, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.bamnt, "Bill amount", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.bamnt, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.bamnt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.gstamnt, "gst amount", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.gstamnt, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.gstamnt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.baamnt, "Base amount", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.baamnt, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.baamnt, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.remarks, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.remarks, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.remarks, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.segstin, "Seller's gstin no", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.segstin, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.segstin, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            @*@using (Html.BeginForm("UploadFile", "Upload", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+        <div class="form-group">
+            <label for="name">Bill</label>
+            
+                @Html.TextBox("file", "", new { type = "file" }) <br />
+                <input type="submit" value="Upload" />
+            
+                @ViewBag.Message
+        </div>
+            }*@
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="button" />
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+</html>
+    @*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

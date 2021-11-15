@@ -16,10 +16,16 @@ namespace project1.Models
     public partial class work
     {
         public int id { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Please enter Employee ID")]
+        [Display(Name = "Employee ID : ")]
         public Nullable<int> empid { get; set; }
+        [Required]
+        [Display(Name = "Previously worked company Name:")]
         public string previous_emp_comp_name { get; set; }
+        [Display(Name = "Years of Experience:")]
         public string year_exp { get; set; }
+        [Required]
+        [Display(Name = "Work domain:")]
         public string work_domain { get; set; }
     
         public virtual basic basic { get; set; }

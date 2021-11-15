@@ -12,6 +12,7 @@ namespace project1.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     using System.Web;
 
     public partial class basic
@@ -24,21 +25,52 @@ namespace project1.Models
             this.works = new HashSet<work>();
             this.leaves = new HashSet<leave>();
             this.raises = new HashSet<raise>();
+            this.reimburses = new HashSet<reimburse>();
         }
-    
+        [Required(ErrorMessage = "Please enter Employee ID")]
+        [Display(Name = "Employee ID : ")]
         public int empid { get; set; }
+        [Required(ErrorMessage = "Please enter Name")]
+        [Display(Name = "Employee Name : ")]
+        [StringLength(20)]
         public string empname { get; set; }
+        [Required(ErrorMessage = "Please select Employee Type")]
+        [Display(Name = "Employee Type : ")]
         public string emptype { get; set; }
+        [Required(ErrorMessage = "Please enter Department ID")]
+        //[Range(101, 104, ErrorMessage = "Department ID  Must be between 101 to 104")]
+        [Display(Name = "Department ID: ")]
         public Nullable<int> deptid { get; set; }
+        [Required(ErrorMessage = "Please enter Date of Birth")]
+        [Display(Name = "Date of Birth : ")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> dob { get; set; }
+
+        [Required(ErrorMessage = "Please enter email ")]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email :")]
+        [MaxLength(50)]
         public string email { get; set; }
+        [Display(Name = "Mobile Number: ")]
+        [Required(ErrorMessage = "Mobile Number is required.")]
+        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
         public string mobile { get; set; }
+        [Display(Name = "Address: ")]
+        [Required(ErrorMessage = "Address is required.")]
         public string address { get; set; }
+        [Required(ErrorMessage = "Please enter Date of Birth")]
+        [Display(Name = "Date of Joining : ")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> dateofjoin { get; set; }
+        [Required(ErrorMessage = "Please select Gender")]
+        [Display(Name = "Gender : ")]
         public string gender { get; set; }
-        [DisplayName("Upload Photo")]
+        [DisplayName("Employee Photo : ")]
         public string emp_photo_path { get; set; }
         public HttpPostedFileBase ImageFile { get; set; }
+       
     
         public virtual department department { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -51,5 +83,7 @@ namespace project1.Models
         public virtual ICollection<leave> leaves { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<raise> raises { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<reimburse> reimburses { get; set; }
     }
 }

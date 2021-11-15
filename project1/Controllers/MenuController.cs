@@ -33,5 +33,9 @@ namespace project1.Controllers
         {
             return View();
         }
+        public ActionResult Home1()
+        {
+            return View();
+        }
     }
 }

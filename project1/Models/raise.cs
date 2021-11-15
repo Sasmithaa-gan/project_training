@@ -11,14 +11,25 @@ namespace project1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class raise
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Employee id is required")]
+        [Display(Name = "Employee ID:")]
         public Nullable<int> empid { get; set; }
+        [Required(ErrorMessage = "Enter your current location")]
+        [Display(Name = "Current Location:")]
         public string curloc { get; set; }
+        [Required(ErrorMessage = "Provide your preferred contact timing")]
+        [Display(Name = "Preferred Contact Timing :")]
         public string precontim { get; set; }
+        [Required(ErrorMessage = "Give short description")]
+        [Display(Name = "Short Description :")]
         public string shortdes { get; set; }
+        [Required(ErrorMessage = "This field is Required")]
+        [Display(Name = "Description :")]
         public string des { get; set; }
     
         public virtual basic basic { get; set; }

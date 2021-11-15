@@ -30,7 +30,7 @@ namespace project1.Controllers
 
 
 
-
+        
         //LEAVE APPLICATION
         public ActionResult leave()
         {
@@ -58,7 +58,7 @@ namespace project1.Controllers
             return View(obj);
 
         }
-
+        [Authorize(Roles = "Manager")]
         //leave list
         public ActionResult leavelist()
         {

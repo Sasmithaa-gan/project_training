@@ -11,18 +11,37 @@ namespace project1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class education
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Please enter Employee ID")]
+        [Display(Name = "Employee ID : ")]
         public Nullable<int> empid { get; set; }
+        [Required(ErrorMessage = "Please enter 10th Percentage")]
+        [Display(Name = "10th Percentage : ")]
         public string Tenth_percentage { get; set; }
+        [Required(ErrorMessage = "Please select one")]
+        [Display(Name = "10th Year of passing: ")]
         public Nullable<int> Tenth_yop { get; set; }
+        [Required(ErrorMessage = "Please enter 12th Percentage")]
+        [Display(Name = "12th Percentage : ")]
         public string Twelfth_percentage { get; set; }
+        [Required(ErrorMessage = "Please select one")]
+        [Display(Name = "12th Year of passing :")]
         public Nullable<int> Twelfth_yop { get; set; }
+        [Required(ErrorMessage = "Please enter UG Percentage")]
+        [Display(Name = "UG Percentage : ")]
         public string UG_percentage { get; set; }
+        [Required(ErrorMessage = "Please select one")]
+        [Display(Name = "UG Year of passing :")]
         public Nullable<int> UG_yop { get; set; }
+        [Required(ErrorMessage = "This field is Required")]
+        [Display(Name = "PG Percentage : ")]
         public string PG_percentage { get; set; }
+        [Required(ErrorMessage = "This field is Required")]
+        [Display(Name = "PG Year of Passing : ")]
         public string PG_yop { get; set; }
     
         public virtual basic basic { get; set; }

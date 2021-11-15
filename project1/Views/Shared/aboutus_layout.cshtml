@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="height:10px">
+        <div class="container">
+            <div class="navbar-header">
+
+
+                <a class="navbar-brand">
+                    <img style="border-radius:40%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe3oHeJN8GiLLuxJq8-fDMHgX99Fgm7JlzZg&usqp=CAU" width="60" height="30" alt="">
+                </a>
+            </div>
+
+
+            @*<div class="navbar-collapse collapse">*@
+            <ul class="nav navbar-nav">
+
+                <li>@Html.ActionLink("Home", "Home", "Menu")</li>
+                <li>@Html.ActionLink("Insights", "Insights", "Menu")</li>
+                <li>@Html.ActionLink("Industries", "Industries", "Menu")</li>
+                <li>@Html.ActionLink("Services", "Services", "Menu")</li>
+
+                <li>@Html.ActionLink("Careers", "Careers", "Menu")</li>
+                <li>@Html.ActionLink("Aboutus", "Aboutus", "Menu")</li>
+
+
+                <li>@Html.ActionLink("Login", "Index", "Home")</li>
+                <li>@Html.ActionLink("Signup", "signup", "Home")</li>
+
+            </ul>
+            @*</div>*@
+        </div>
+    </div>
+
+    <br />
+    <br />
+    <div>
+        @RenderBody()
+
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

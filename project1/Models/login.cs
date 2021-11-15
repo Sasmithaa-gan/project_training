@@ -11,11 +11,21 @@ namespace project1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class login
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Please enter email ")]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email :")]
+        [MaxLength(50)]
+        //[RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Invalid email")]
         public string emailid { get; set; }
+        [Required(ErrorMessage = "Please enter Password ")]
+        [Display(Name = "Password : ")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$", ErrorMessage = "Password should contain atleast one uppercase letter, one lowercase letter,one special character and one number")]
         public string password { get; set; }
     }
 }

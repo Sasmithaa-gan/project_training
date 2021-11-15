@@ -2,42 +2,68 @@
 
 @{
     ViewBag.Title = "skilldetails";
+    Layout = "~/Views/Shared/sidebar.cshtml";
 }
 
-<h2>skilldetails</h2>
+<html>
+<head>
+    <style>
+        /* dl.dl-horizontal {
+            padding-left: 40%;
+        }*/
 
-<div>
-    <h4>skill</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.primary_skills)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.primary_skills)
-        </dd>
+        dt {
+            color: darkblue;
+        }
 
-        <dt>
-            @Html.DisplayNameFor(model => model.other_skills)
-        </dt>
+        dd {
+            color: black;
+            background-color: white;
+        }
+    </style>
 
-        <dd>
-            @Html.DisplayFor(model => model.other_skills)
-        </dd>
+</head>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.basic.empname)
-        </dt>
+<body>
 
-        <dd>
-            @Html.DisplayFor(model => model.basic.empname)
-        </dd>
+    <div>
+        <h2 style="color:black" align="center"><b>Skill Details</b></h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.primary_skills)
+            </dt>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit3", new { id = Model.id }) |
-    @Html.ActionLink("Back to List", "basiclist","Register")
-</p>
+            <dd>
+                @Html.DisplayFor(model => model.primary_skills)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.other_skills)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.other_skills)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.basic.empname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.basic.empname)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @if (Roles.IsUserInRole("Manager"))
+        {
+            @Html.ActionLink("Edit", "Edit3", new { id = Model.id })
+        }
+        <br />
+        @Html.ActionLink("Back to List", "Pagefilter", "Register")
+    </p>
+    </body>
+</html>
 

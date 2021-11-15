@@ -3,99 +3,122 @@
 
 @{
     ViewBag.Title = "edudetails";
+    Layout = "~/Views/Shared/sidebar.cshtml";
 }
 
-<h2>edudetails</h2>
+<html>
+<head>
+    <style>
+        /* dl.dl-horizontal {
+            padding-left: 40%;
+        }*/
 
-<div>
-    <h4>education</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.empid)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.empid)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Tenth_percentage)
-        </dt>
+        dt {
+            color: darkblue;
+        }
 
-        <dd>
-            @Html.DisplayFor(model => model.Tenth_percentage)
-        </dd>
+        dd {
+            color: black;
+            background-color: white;
+        }
+    </style>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tenth_yop)
-        </dt>
+</head>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tenth_yop)
-        </dd>
+<body>
+    <div>
+        <h2 style="color:black" align="center"><b>Educational Details</b></h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.empid)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Twelfth_percentage)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.empid)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Tenth_percentage)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Twelfth_percentage)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Tenth_percentage)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Twelfth_yop)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Tenth_yop)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Twelfth_yop)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Tenth_yop)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UG_percentage)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Twelfth_percentage)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UG_percentage)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Twelfth_percentage)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.UG_yop)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Twelfth_yop)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.UG_yop)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Twelfth_yop)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PG_percentage)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.UG_percentage)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PG_percentage)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.UG_percentage)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PG_yop)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.UG_yop)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.PG_yop)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.UG_yop)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.basic.empname)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.PG_percentage)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.basic.empname)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.PG_percentage)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit1", new { id = Model.id }) |
-    @*@Html.ActionLink("Delete", "Delete1", new {id=Model.id}) |
-        @Html.ActionLink("Create","education1") |*@
-    @Html.ActionLink("Back to List", "basiclist","Register")
-</p>
+            <dt>
+                @Html.DisplayNameFor(model => model.PG_yop)
+            </dt>
 
+            <dd>
+                @Html.DisplayFor(model => model.PG_yop)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.basic.empname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.basic.empname)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @if (Roles.IsUserInRole("Manager"))
+        {
+            @Html.ActionLink("Edit", "Edit1", new { id = Model.id })
+        }
+        <br />
+
+        @Html.ActionLink("Back to List", "Pagefilter", "Register")
+    </p>
+    </body>
+</html>

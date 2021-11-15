@@ -11,15 +11,32 @@ namespace project1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class leave
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Employee id is required")]
+        [Display(Name = "Employee ID:")]
         public Nullable<int> empid { get; set; }
+        [Required(ErrorMessage = "Please select type of leave")]
+        [Display(Name = "Type of Leave : ")]
         public string typeofleave { get; set; }
+        [Required(ErrorMessage = "Select your start date")]
+        [Display(Name = "Start date:")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> startdate { get; set; }
+        [Required(ErrorMessage = "Select your end date")]
+        [Display(Name = "End date:")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> enddate { get; set; }
+        [Required(ErrorMessage = "Please provide comments")]
+        [Display(Name = "Comments :")]
         public string comments { get; set; }
+        //[Required(ErrorMessage = "Please select the checkbox to apply for leave")]
+        [Display(Name = "Apply for leave? ")]
         public string ApplyforLeave { get; set; }
     
         public virtual basic basic { get; set; }

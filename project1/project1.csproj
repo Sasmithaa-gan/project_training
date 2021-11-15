@@ -144,6 +144,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\MyprofileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ReimbursementController.cs" />
     <Compile Include="Controllers\SalaryController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,11 +185,21 @@
     <Compile Include="Models\raise.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\reimburse.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoleMaster.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Salary.cs" />
     <Compile Include="Models\signup.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\skill.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UsersRoleProvider.cs" />
+    <Compile Include="Models\UserRolesMapping.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\work.cs">
@@ -197,15 +208,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="aboutus_style.css" />
+    <Content Include="Advisory1.html" />
+    <Content Include="aerospace.jpg" />
+    <Content Include="Audit_and_Assurance.html" />
+    <Content Include="building.jpg" />
+    <Content Include="carbonfree.jpg" />
+    <Content Include="careers_style.css" />
+    <Content Include="consumer.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="covid.jpg" />
+    <Content Include="education.jpg" />
+    <Content Include="emerging.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="independence.jpg" />
+    <Content Include="insights_style.css" />
+    <Content Include="istockphoto-1293539824-170667a214758273.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -216,6 +250,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Content Include="natural.jpg" />
+    <Content Include="newsfeed.jpg" />
+    <Content Include="Private_Enterprise.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\Model1.edmx">
@@ -231,6 +268,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -240,6 +278,7 @@
     <Content Include="StyleSheet2.css" />
     <Content Include="sidebarstyle.css" />
     <Content Include="Homestyle.css" />
+    <Content Include="Tax_and_Legal.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -285,6 +324,16 @@
     <Content Include="Views\Leave\leave.cshtml" />
     <Content Include="Views\Leave\raise.cshtml" />
     <Content Include="Views\Leave\leavelist.cshtml" />
+    <Content Include="Views\Menu\Services.cshtml" />
+    <Content Include="Views\Menu\Aboutus.cshtml" />
+    <Content Include="Views\Menu\Insights.cshtml" />
+    <Content Include="Views\Menu\Careers.cshtml" />
+    <Content Include="Views\Menu\Home1.cshtml" />
+    <Content Include="Views\Shared\services_layout.cshtml" />
+    <Content Include="Views\Shared\aboutus_layout.cshtml" />
+    <Content Include="Views\Menu\Industries.cshtml" />
+    <Content Include="Views\Reimbursement\reimburse.cshtml" />
+    <Content Include="Views\Reimbursement\reimburselist.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

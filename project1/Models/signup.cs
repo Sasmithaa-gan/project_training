@@ -11,18 +11,58 @@ namespace project1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class signup
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public signup()
+        {
+            this.UserRolesMappings = new HashSet<UserRolesMapping>();
+        }
+    
         public int id { get; set; }
+        [Required(ErrorMessage = "Please enter Name")]
+        [Display(Name = "Name : ")]
+        [StringLength(20)]
         public string name { get; set; }
+        [Required(ErrorMessage = "Please enter Employee ID")]
+        [Display(Name = "Employee ID : ")]
         public string empid { get; set; }
+        [Display(Name = "Mobile :")]
+        [Required(ErrorMessage = "Mobile Number is required.")]
+        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Invalid Mobile Number.")]
         public string mobileno { get; set; }
+        [Required(ErrorMessage = "Please enter Date of Birth")]
+        [Display(Name = "Date of Birth : ")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> dob { get; set; }
+        [Required(ErrorMessage = "Please enter email ")]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email :")]
+        [MaxLength(50)]
+        //[RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Invalid email")]
         public string emailid { get; set; }
+        [Required(ErrorMessage = "Please enter Password ")]
+        [Display(Name = "Password : ")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$", ErrorMessage = "Password should contain atleast one uppercase letter, one lowercase letter,one special character and one number")]
         public string password { get; set; }
+        [Required(ErrorMessage = "Re-enter Password ")]
+        [Display(Name = "Confirm Password : ")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$", ErrorMessage = "Password should contain atleast one uppercase letter, one lowercase letter,one special character and one number")]
+        [System.ComponentModel.DataAnnotations.Compare("password", ErrorMessage = "Password Mismatch")]
         public string confirmpassword { get; set; }
+        [Required(ErrorMessage = "Choose a question")]
+        [Display(Name = "Security Question : ")]
         public string securityquestion { get; set; }
+        [Required(ErrorMessage = "You must answer for the above question")]
+        [Display(Name = "Answer : ")]
         public string securityanswer { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserRolesMapping> UserRolesMappings { get; set; }
     }
 }

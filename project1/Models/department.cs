@@ -11,7 +11,8 @@ namespace project1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class department
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace project1.Models
         }
     
         public int id { get; set; }
+        [Required(ErrorMessage = "Please enter Department ID")]
+        [Display(Name = "Department ID : ")]
         public int dept_id { get; set; }
+        //[Required(ErrorMessage = "Please enter Department ID")]
+        [Display(Name = "Department Name : ")]
         public string dept_name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

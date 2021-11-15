@@ -29,7 +29,7 @@ namespace project1.Controllers
                     m.logins.Add(log);
                     m.SaveChanges();
                     int id = log.id;
-                    return RedirectToAction("basiclist", "Register");  //Sasmithaa will put the employee path 
+                    return RedirectToAction("Home1","Menu");  //Sasmithaa will put the employee path 
 
 
                 }
@@ -64,7 +64,7 @@ namespace project1.Controllers
                     m.SaveChanges();
                     int id = sign.id;
 
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","Home");
                    
                 }
                 else
@@ -110,6 +110,14 @@ namespace project1.Controllers
 
 
             return View();
+        }
+
+
+        //LOGOUT
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Home", "Menu");
         }
     }
 }

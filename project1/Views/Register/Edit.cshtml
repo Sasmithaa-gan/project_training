@@ -2,18 +2,41 @@
 
 @{
     ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/sidebar.cshtml";
 }
 
-<h2>Edit</h2>
+<html>
+<head>
+    <script type="text/javascript">
+        function showMessage()
+        {
+            alert("Saved Successfully");
+        }
+    </script>
+    <style>
+        .button {
+            background-color: forestgreen;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+
+</head>
+
+<body>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>basic</h4>
-        <hr />
+        <h2 style="color:black" align="center"><b>Basic Details</b></h2>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.empid)
 
@@ -99,17 +122,18 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="button" />
             </div>
         </div>
     </div>
-}
+    }
 
-<div>
-    @Html.ActionLink("Back to List", "basiclist","Register")
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+    <div>
+        @Html.ActionLink("Back to List", "Pagefilter", "Register")
+    </div>
+    </body>
+</html>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
 

@@ -2,102 +2,166 @@
 
 @{
     ViewBag.Title = "education";
+    Layout = "~/Views/Shared/sidebar.cshtml";
 }
 
-<h2>education</h2>
+<html>
+<head>
+    <style>
+        .form-horizontal {
+            padding-left: 30%;
+        }
+        .button {
+            background-color: royalblue;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+    </style>
+</head>
 
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+<body>
+    <h2 style="color:black" align="center"><b>Educational Details</b></h2>
+    <br />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>education</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.empid, "empid", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.empid, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.empid, "", new { @class = "text-danger" })
+        <div class="form-horizontal">
+
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.empid, "empid", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.empid, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.empid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tenth_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Tenth_percentage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Tenth_percentage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tenth_yop, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Tenth_yop", new List<SelectListItem>
+                        { new SelectListItem{Text="2007",Value="2007"},
+                            new SelectListItem{Text="2008",Value="2008"},
+                            new SelectListItem{Text="2009",Value="2009"},
+                            new SelectListItem{Text="2010",Value="2010"},
+                            new SelectListItem{Text="2011",Value="2011"},
+                            new SelectListItem{Text="2012",Value="2012"},
+                            new SelectListItem{Text="2013",Value="2013"},
+                            new SelectListItem{Text="2014",Value="2014"},
+                            new SelectListItem{Text="2015",Value="2015"} },
+
+                            "Select Year of paasing", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Tenth_yop, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Twelfth_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Twelfth_percentage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Twelfth_percentage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Twelfth_yop, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Twelfth_yop", new List<SelectListItem>
+                        { new SelectListItem{Text="2011",Value="2011"},
+                            new SelectListItem{Text="2012",Value="2012"},
+                            new SelectListItem{Text="2013",Value="2013"},
+                            new SelectListItem{Text="2014",Value="2014"},
+                            new SelectListItem{Text="2015",Value="2015"},
+                            new SelectListItem{Text="2016",Value="2016"},
+                            new SelectListItem{Text="2017",Value="2017"},
+                            new SelectListItem{Text="2018",Value="2018"},
+                            new SelectListItem{Text="2019",Value="2019"} },
+
+                            "Select Year of paasing", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Twelfth_yop, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UG_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.UG_percentage, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.UG_percentage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UG_yop, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("UG_yop", new List<SelectListItem>
+                       { new SelectListItem{Text="2015",Value="2015"},
+                           new SelectListItem{Text="2016",Value="2016"},
+                           new SelectListItem{Text="2017",Value="2017"},
+                           new SelectListItem{Text="2018",Value="2018"},
+                           new SelectListItem{Text="2019",Value="2019"},
+                           new SelectListItem{Text="2020",Value="2020"},
+                           new SelectListItem{Text="2021",Value="2021"} },
+
+                           "Select Year of paasing", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UG_yop, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PG_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PG_percentage, new { htmlAttributes = new { @class = "form-control", @placeholder = "NIL if not Applicable" } })
+                    @Html.ValidationMessageFor(model => model.PG_percentage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PG_yop, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PG_yop, new { htmlAttributes = new { @class = "form-control", @placeholder = "NIL if not Applicable" } })
+                    @*@Html.DropDownList("UG_yop", new List<SelectListItem>
+                        {
+                            new SelectListItem{Text="2017",Value="2017"},
+                            new SelectListItem{Text="2018",Value="2018"},
+                            new SelectListItem{Text="2019",Value="2019"},
+                            new SelectListItem{Text="2020",Value="2020"},
+                            new SelectListItem{Text="2021",Value="2021"},
+                            new SelectListItem{Text="NIL",Value="NIL"}} ,
+
+                            "Select Year of paasing", new { @class = "form-control" })*@
+                    @Html.ValidationMessageFor(model => model.PG_yop, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Next" class="button" />
+                </div>
             </div>
         </div>
+    }
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Tenth_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Tenth_percentage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Tenth_percentage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Tenth_yop, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Tenth_yop, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Tenth_yop, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Twelfth_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Twelfth_percentage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Twelfth_percentage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Twelfth_yop, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Twelfth_yop, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Twelfth_yop, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UG_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UG_percentage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UG_percentage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.UG_yop, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.UG_yop, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.UG_yop, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PG_percentage, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PG_percentage, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PG_percentage, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PG_yop, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PG_yop, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PG_yop, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+    @*<div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
+</body>
+</html>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

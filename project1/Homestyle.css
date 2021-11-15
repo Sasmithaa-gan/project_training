@@ -43,7 +43,7 @@
 /* Centered text */
 .centered {
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -93,8 +93,11 @@ a:link {
 
 .column {
     float: left;
-    width: 40%;
+    width: 33.33%;
     padding: 10px;
+
+
+    
 }
 
 /* Clear floats after image containers */
@@ -107,4 +110,11 @@ a:link {
 * {
     box-sizing: border-box;
 }
+
+
+
+
+
+
+
 

@@ -10,6 +10,7 @@ using PagedList;
 using project1.Models;
 namespace project1.Controllers
 {
+    
     public class RegisterController : Controller
     {
         // GET: Register
@@ -25,6 +26,7 @@ namespace project1.Controllers
         [HttpPost]
         public ActionResult basic(basic obj)
         {
+
             string filename = Path.GetFileNameWithoutExtension(obj.ImageFile.FileName);
             string extension = Path.GetExtension(obj.ImageFile.FileName);
             filename = filename + DateTime.Now.ToString("yymmssfff") + extension;
@@ -109,7 +111,7 @@ namespace project1.Controllers
 
 
 
-
+        
         //basic details in details template
         public ActionResult Details(int id)
         {
@@ -119,7 +121,7 @@ namespace project1.Controllers
         }
 
 
-
+        [Authorize(Roles = "Admin,Manager")]
         //Basic details in edit template
         public ActionResult Edit(int? id)
         {
@@ -149,7 +151,7 @@ namespace project1.Controllers
             {
                 p.Entry(basic).State = EntityState.Modified;
                 p.SaveChanges();
-                return RedirectToAction("basiclist", "Register");
+                return RedirectToAction("Pagefilter", "Register");
             }
             ViewBag.deptid = new SelectList(p.departments, "dept_id", "dept_name", basic.deptid);
             return View(basic);
@@ -182,7 +184,7 @@ namespace project1.Controllers
             basic basic = p.basics.Find(id);
             p.basics.Remove(basic);
             p.SaveChanges();
-            return RedirectToAction("basiclist", "Register");
+            return RedirectToAction("Pagefilter", "Register");
         }
 
 
@@ -210,7 +212,7 @@ namespace project1.Controllers
 
 
 
-
+        
         //education details in details template
         public ActionResult edudetails(int id)
         {
@@ -223,6 +225,7 @@ namespace project1.Controllers
 
 
         //education details in edit template
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit1(int? id)
         {
             if (id == null)
@@ -249,7 +252,7 @@ namespace project1.Controllers
             {
                 p.Entry(education).State = EntityState.Modified;
                 p.SaveChanges();
-                return RedirectToAction("basiclist", "Register");
+                return RedirectToAction("Pagefilter", "Register");
             }
             ViewBag.empid = new SelectList(p.basics, "empid", "empname", education.empid);
             return View(education);
@@ -281,7 +284,7 @@ namespace project1.Controllers
             education education = p.educations.Find(id);
             p.educations.Remove(education);
             p.SaveChanges();
-            return RedirectToAction("basiclist", "Register");
+            return RedirectToAction("Pagefilter", "Register");
         }
 
 
@@ -322,6 +325,7 @@ namespace project1.Controllers
 
 
         //Work details in edit template
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit2(int? id)
         {
             if (id == null)
@@ -348,7 +352,7 @@ namespace project1.Controllers
             {
                 p.Entry(work).State = EntityState.Modified;
                 p.SaveChanges();
-                return RedirectToAction("basiclist", "Register");
+                return RedirectToAction("Pagefilter", "Register");
             }
             ViewBag.empid = new SelectList(p.basics, "empid", "empname", work.empid);
             return View(work);
@@ -379,7 +383,7 @@ namespace project1.Controllers
             work work = p.works.Find(id);
             p.works.Remove(work);
             p.SaveChanges();
-            return RedirectToAction("basiclist", "Register");
+            return RedirectToAction("Pagefilter", "Register");
         }
 
 
@@ -421,6 +425,7 @@ namespace project1.Controllers
 
 
         //skill details in edit template
+        [Authorize(Roles = "Admin,Manager")]
         public ActionResult Edit3(int? id)
         {
             if (id == null)
@@ -447,7 +452,7 @@ namespace project1.Controllers
             {
                 p.Entry(skill).State = EntityState.Modified;
                 p.SaveChanges();
-                return RedirectToAction("basiclist","Register");
+                return RedirectToAction("Pagefilter","Register");
             }
             ViewBag.empid = new SelectList(p.basics, "empid", "empname", skill.empid);
             return View(skill);
@@ -479,7 +484,7 @@ namespace project1.Controllers
             skill skill = p.skills.Find(id);
             p.skills.Remove(skill);
             p.SaveChanges();
-            return RedirectToAction("basiclist","Register");
+            return RedirectToAction("Pagefilter","Register");
         }
 
 

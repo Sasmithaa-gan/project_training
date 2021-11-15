@@ -11,14 +11,33 @@ namespace project1.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class forgot
     {
         public int id { get; set; }
+        [Required(ErrorMessage = "Please enter email ")]
+        [DataType(DataType.EmailAddress)]
+        [Display(Name = "Email :")]
+        [MaxLength(50)]
+        //[RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Invalid email")]
         public string emailid { get; set; }
+        [Required(ErrorMessage = "Choose a question")]
+        [Display(Name = "Security Question : ")]
         public string securityquestion { get; set; }
+        [Required(ErrorMessage = "You must answer for the above question")]
+        [Display(Name = "Answer : ")]
         public string securityanswer { get; set; }
+        [Required]
+        [Display(Name = "New Password : ")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$", ErrorMessage = "Password should contain atleast one uppercase letter, one lowercase letter,one special character and one number")]
         public string newpassword { get; set; }
+        [Required]
+        [Display(Name = "Confirm Password : ")]
+        [DataType(DataType.Password)]
+        [RegularExpression(@"^((?=.*[a-z])(?=.*[A-Z])(?=.*\d)).+$", ErrorMessage = "Password should contain atleast one uppercase letter, one lowercase letter,one special character and one number")]
+        [Compare("newpassword", ErrorMessage = "Password Mismatch")]
         public string confirmpassword { get; set; }
     }
 }
