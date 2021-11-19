@@ -1,0 +1,130 @@
+﻿@model PagedList.IPagedList<project1.Models.basic>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Pagefilter";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        .button {
+            background-color: royalblue;
+            border: none;
+            color: white;
+            padding: 6px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+
+        #records {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #records td, #records {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #records tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #records tr:hover {
+                background-color: #ddd;
+            }
+
+            #records th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: dodgerblue;
+                color: white;
+            }
+    </style>
+
+</head>
+
+<body>
+    <h2 style="color:black" align="center"><b>Employee Records</b></h2>
+
+    <br />
+    @using (Html.BeginForm())
+    {
+        <h5>
+            Find by Employee Name: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" class="button"/>
+        </h5>
+    }
+    <br />
+    <!--Table with bootstrap class .table and .table-condensed-->
+    <table class="table table-condensed" id="records">
+        <thead>
+            <tr>
+
+                <th>@Html.ActionLink("Employee ID", "Pagefilter", new { sortOrder = ViewBag.NameSortParm }, new{ id = "OT",style = "color: white" })</th>
+
+                <th>Employee Name</th>
+                <th>Basic</th>
+                <th>Education</th>
+                <th>Work</th>
+                <th>Skill</th>
+                @*<th>city</th>
+                    <th>gender</th>
+                    <th>credit_cardholder</th>
+                    <th>deptid</th>*@
+            </tr>
+        </thead>
+        <tbody>
+            <!--Loop through each customer to show it's data-->
+            @foreach (var basic in Model)
+            {
+                <tr>
+                    <td>@basic.empid</td>
+                    <td>@basic.empname</td>
+                    @*<td>@emplist1.address</td>
+                        <td>@emplist1.mobileno</td>
+                        <td>@emplist1.salary</td>
+                        <td>@emplist1.city</td>
+                        <td>@emplist1.gender</td>
+                        <td>@emplist1.credit_cardholder</td>
+                        <td>@emplist1.deptid</td>*@
+                    <td>
+                        @*@Html.ActionLink("Edit", "Edit", new { id = item.empid }) |*@
+                        @Html.ActionLink("Basic Details", "Details", new { id = basic.empid })
+
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.empid })*@
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Education Details", "edudetails", new { id = basic.empid })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Work Experience Details", "workdetails", new { id = basic.empid })
+                    </td>
+                    <td>
+                        @Html.ActionLink("Skill Details", "skilldetails", new { id = basic.empid })
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+
+
+    <br />
+    <!--Code to show curent page and page number-->
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Pagefilter",
+        new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+
+</body>
+</html>

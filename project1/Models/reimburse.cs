@@ -19,29 +19,29 @@ namespace project1.Models
         [Required(ErrorMessage = "Please enter Employee ID")]
         [Display(Name = "Employee ID : ")]
         public Nullable<int> empid { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "Type of Claim: ")]
         public string ct { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "Bill No:")]
         public Nullable<int> bno { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "Date:")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> bd { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "Bill amount:")]
         public Nullable<int> bamnt { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "Gst amount:")]
         public Nullable<int> gstamnt { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "Base amount:")]
         public Nullable<int> baamnt { get; set; }
         [Display(Name = "Remarks:")]
         public string remarks { get; set; }
-        [Required]
+        //[Required]
         [Display(Name = "Seller Gst number:")]
         public Nullable<int> segstin { get; set; }
     

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="height:10px">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("KPMG", "Home", "Menu", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <img src="https://tse4.mm.bing.net/th/id/OIP.807qBJzMvtGpAJXLY6dPAAAAAA?pid=ImgDet&rs=1" align="left" />
+                    <li>@Html.ActionLink("Home", "Home", "Menu")</li>
+                    <li>@Html.ActionLink("Insights", "Insights", "Menu")</li>
+                    <li>@Html.ActionLink("Industries", "Industries", "Menu")</li>
+                    <li>@Html.ActionLink("Services", "Services", "Menu")</li>
+                    <li>@Html.ActionLink("Careers", "Careers", "Menu")</li>
+                    <li>@Html.ActionLink("About us", "Aboutus", "Menu")</li>
+
+
+
+                    <li>@Html.ActionLink("Login", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Signup", "signup", "Home")</li>
+
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+    <footer style="background-color:lightgray;align-content:center">
+        <p>
+            © 2021 Copyright owned by one or more of the KPMG International entities.
+
+            KPMG International entities provide no services to clients. All rights reserved.
+            <br />
+            <br />
+            KPMG refers to the global organization or to one or more of the member firms of
+            KPMG International Limited (“KPMG International”), each of which is a separate legal entity.
+            KPMG International Limited is a private English company limited by guarantee and does not
+            provide services to clients. For more detail about our structure
+            please visit https://home.kpmg/governance.
+            <br />
+            <br />
+            Member firms of the KPMG network of independent firms are affiliated with KPMG International.
+            KPMG International provides no client services.
+            No member firm has any authority to obligate or bind KPMG International or any other member
+            firm vis-à-vis third parties, nor does KPMG International have any such authority to obligate
+            or bind any member firm.
+        </p>
+
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

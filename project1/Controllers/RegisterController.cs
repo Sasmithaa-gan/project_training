@@ -100,7 +100,7 @@ namespace project1.Controllers
                     break;
             }
             //indicates the size of list
-            int pageSize = 3;
+            int pageSize = 2;
             //set page to one is there is no value, ??  is called the null-coalescing operator.
             int pageNumber = (page ?? 1);
             //return the Model data with paged

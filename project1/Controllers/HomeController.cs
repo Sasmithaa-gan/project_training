@@ -64,11 +64,12 @@ namespace project1.Controllers
                     m.SaveChanges();
                     int id = sign.id;
 
-                    return RedirectToAction("Index","Home");
-                   
+                    return RedirectToAction("Index", "Home");
+
                 }
                 else
                 {
+
                     ModelState.AddModelError("", "Email already Exists");
 
                 }

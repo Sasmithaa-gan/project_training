@@ -1,0 +1,141 @@
+﻿@model IEnumerable<project1.Models.reimburse>
+
+@{
+    ViewBag.Title = "reimburselist";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        .button {
+            background-color: royalblue;
+            border: none;
+            color: white;
+            padding: 6px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+
+        #records {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #records td, #records {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+                #records tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+
+                #records tr:hover {
+                    background-color: #ddd;
+                }
+
+                #records th {
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    text-align: left;
+                    background-color: dodgerblue;
+                    color: white;
+                }
+    </style>
+
+</head>
+
+<body>
+    <h2 style="color:black" align="center"><b>Expenses Details</b></h2>
+    <br />
+    <table class="table" id="records">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.empid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.basic.empname)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bno)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bamnt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gstamnt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.baamnt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.remarks)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.segstin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.basic.empname)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.empid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.basic.empname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ct)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bamnt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gstamnt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.baamnt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.remarks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.segstin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.basic.empname)
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.id })
+        </td>*@
+    </tr>
+        }
+
+    </table>
+    </body>
+</html>

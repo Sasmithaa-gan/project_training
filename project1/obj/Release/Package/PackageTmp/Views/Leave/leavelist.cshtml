@@ -1,0 +1,121 @@
+﻿@model IEnumerable<project1.Models.leave>
+
+@{
+    ViewBag.Title = "leavelist";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+<html>
+<head>
+    <style>
+        .button {
+            background-color: royalblue;
+            border: none;
+            color: white;
+            padding: 6px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+
+        #records {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #records td, #records {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+                #records tr:nth-child(even) {
+                    background-color: #f2f2f2;
+                }
+
+                #records tr:hover {
+                    background-color: #ddd;
+                }
+
+                #records th {
+                    padding-top: 12px;
+                    padding-bottom: 12px;
+                    text-align: left;
+                    background-color: dodgerblue;
+                    color: white;
+                }
+    </style>
+
+</head>
+
+<body>
+    <h2 style="color:black" align="center"><b>Leave Details</b></h2>
+    <br />
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>*@
+    <table class="table" id="records">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.empid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.basic.empname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.typeofleave)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.startdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.enddate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comments)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplyforLeave)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.empid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.basic.empname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.typeofleave)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.startdate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.enddate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comments)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ApplyforLeave)
+                </td>
+
+                @*<td>
+                        @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.id })
+                    </td>*@
+            </tr>
+        }
+
+    </table>
+    </body>
+</html>

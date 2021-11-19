@@ -1,0 +1,126 @@
+﻿@model project1.Models.Salary
+
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/sidebar.cshtml"; 
+    }
+<style type="text/css">
+
+
+    table {
+        font-family: Arial, sans-serif;
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        background-color:dodgerblue;
+        color:white;
+    }
+
+    tr :nth-child(2n) {
+        background-color: #dddddd;
+        color:black;
+    }
+
+    .center {
+        border: 5px solid #FFFF00;
+        text-align: center;
+    }
+   
+</style>
+
+
+
+<html>
+<head style="font-size : 300%">
+
+    <link href="~/insights_style.css" rel="stylesheet" />
+</head>
+<body style="background-color:white">
+    <h1 style="color:black" ><b>Salary Details</b></h1>
+    <br />
+    <div class="col-md-6">
+        @using (Html.BeginForm("/Index", "Salary", FormMethod.Post))
+        {
+<div class="form-group">
+    <label for="name">Employee ID</label>
+    <input type="text" class="form-control" id="empid" name="empid" value="@Model.empid" />
+    @Html.ValidationMessageFor(model => model.empid, "", new { @class = "text-danger" })
+</div>
+                <div class="form-group">
+                    <label for="name">Employee Name</label>
+                    <input type="text" class="form-control" id="empname" name="empname" value="@Model.empname" />
+                    @Html.ValidationMessageFor(model => model.empname, "", new { @class = "text-danger" })
+                </div>
+                                <div class="form-group">
+                                    <label for="name">Basic Pay</label>
+                                    <input type="text" class="form-control" id="basicpay" name="basicpay" value="@Model.basicpay" />
+                                    @Html.ValidationMessageFor(model => model.basicpay, "", new { @class = "text-danger" })
+                                </div> @*<div class="form-group">
+                                                        <label for="name">HRA(House Rent Allowance)</label>
+                                                        <input type="text" class="form-control" id="hra" name="hra" value="@Model.hra" />
+                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="name">DA(Dearness Allowance)</label>
+                                                                        <input type="text" class="form-control" id="da" name="da" value="@Model.da" />
+                                                                    </div>
+                                                                                    <div class="form-group">
+                                                                                        <label for="name">PF(Provident Fund)</label>
+                                                                                        <input type="text" class="form-control" id="pf" name="pf" value="@Model.pf" />
+                                                                                    </div>
+                                                                                                    <div class="form-group">
+                                                                                                        <label for="name">Tax</label>
+                                                                                                        <input type="text" class="form-control" id="tax" name="tax" value="@Model.tax" />
+                                                                                                    </div>
+                                                                                                                    <div class="form-group">
+                                                                                                                        <label for="name">Net Salary</label>
+                                                                                                                        <input type="text" class="form-control" id="netsalary" name="netsalary" value="@Model.netsalary" />
+                                                                                                                    </div>*@
+                                                <button type="submit" class="btn btn-info" id="add" value="add">Calculate</button>}
+    </div>
+
+    <div class="col-md-6">
+
+        <table id="records">
+            <tr>
+                <th>Employee ID</th>
+                <td>@Model.empid</td>
+            </tr>
+            <tr>
+                <th>Employee Name</th>
+                <td>@Model.empname</td>
+            </tr>
+            <tr>
+                <th>Basic Pay </th>
+                <td>@Model.basicpay</td>
+            </tr>
+            <tr>
+                <th>DA        </th>
+                <td>@Model.da</td>
+            </tr>
+            <tr>
+                <th>HRA        </th>
+                <td>@Model.hra</td>
+            </tr>
+            <tr>
+                <th>PF        </th>
+                <td>@Model.pf</td>
+            </tr>
+            <tr>
+                <th>Tax       </th>
+                <td>@Model.tax</td>
+            </tr>
+            <tr>
+                <th>Net Salary</th>
+                <td>@Model.netsalary</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+
+

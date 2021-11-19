@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "resourceId": "/subscriptions/[parameters('subscriptionId')]/resourcegroups/[parameters('resourceGroupName')]/providers/Microsoft.Sql/servers/empserverdbserver/databases/empserver",
+      "type": "mssql.azure",
+      "connectionId": "project1Entities",
+      "secretStore": "AzureAppSettings"
+    }
+  }
+}

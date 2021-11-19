@@ -1,0 +1,124 @@
+﻿
+@model project1.Models.education
+
+@{
+    ViewBag.Title = "edudetails";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        /* dl.dl-horizontal {
+            padding-left: 40%;
+        }*/
+
+
+        dt {
+            color: darkblue;
+        }
+
+        dd {
+            color: black;
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h2 style="color:black" align="center"><b>Educational Details</b></h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.empid)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.empid)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Tenth_percentage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tenth_percentage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Tenth_yop)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Tenth_yop)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Twelfth_percentage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Twelfth_percentage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Twelfth_yop)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Twelfth_yop)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UG_percentage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UG_percentage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UG_yop)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UG_yop)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PG_percentage)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PG_percentage)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PG_yop)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PG_yop)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.basic.empname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.basic.empname)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @if (Roles.IsUserInRole("Manager"))
+        {
+            @Html.ActionLink("Edit", "Edit1", new { id = Model.id })
+        }
+        <br />
+
+        @Html.ActionLink("Back to List", "Pagefilter", "Register")
+    </p>
+    </body>
+</html>

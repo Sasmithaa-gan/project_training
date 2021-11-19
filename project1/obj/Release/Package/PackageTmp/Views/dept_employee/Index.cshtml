@@ -1,0 +1,54 @@
+﻿@model IEnumerable<project1.Models.basic>
+@using project1.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+<html>
+<head>
+    <style>
+        ol.c {
+            list-style-type: square;
+        }
+
+
+        .blink {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d38be;
+            transition: 0.5s;
+        }
+    </style>
+
+</head>
+<body>
+    <h2 style="color:black" align="center"><b>Employee List</b></h2>
+    <p id="blink" style="color:red;font-size:large"><b>Click below names to know basic details of the employees!</b></p>
+    <script type="text/javascript">
+        var blink = document.getElementById('blink');
+        setInterval(function () {
+            blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+        }, 1500);
+    </script>
+    <div>
+
+        <ol>
+            @foreach (basic st in @Model)
+            {
+                <li>
+                    @Html.ActionLink(st.empname, "Details", new { id = st.empid })
+
+                </li>
+                <br />
+            }
+        </ol>
+
+
+        @Html.ActionLink("Branch list", "Index", "department")
+    </div>
+    <p id="blink" style="color:red;font-size:large"><b>See the below statistics to know about the number of employees!</b></p>
+    
+    <img src="https://www.statista.com/graphic/1/484041/number-of-employees-of-kpmg.jpg" style="width:100%"/>
+</body>
+</html>

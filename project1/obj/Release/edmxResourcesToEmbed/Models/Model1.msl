@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="project1ModelStoreContainer" CdmEntityContainer="project1Entities">
+    <EntitySetMapping Name="basics">
+      <EntityTypeMapping TypeName="project1Model.basic">
+        <MappingFragment StoreEntitySet="basic">
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="empname" ColumnName="empname" />
+          <ScalarProperty Name="emptype" ColumnName="emptype" />
+          <ScalarProperty Name="deptid" ColumnName="deptid" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="dateofjoin" ColumnName="dateofjoin" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="emp_photo_path" ColumnName="emp_photo_path" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="departments">
+      <EntityTypeMapping TypeName="project1Model.department">
+        <MappingFragment StoreEntitySet="department">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+          <ScalarProperty Name="dept_name" ColumnName="dept_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="educations">
+      <EntityTypeMapping TypeName="project1Model.education">
+        <MappingFragment StoreEntitySet="education">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="Tenth_percentage" ColumnName="Tenth_percentage" />
+          <ScalarProperty Name="Tenth_yop" ColumnName="Tenth_yop" />
+          <ScalarProperty Name="Twelfth_percentage" ColumnName="Twelfth_percentage" />
+          <ScalarProperty Name="Twelfth_yop" ColumnName="Twelfth_yop" />
+          <ScalarProperty Name="UG_percentage" ColumnName="UG_percentage" />
+          <ScalarProperty Name="UG_yop" ColumnName="UG_yop" />
+          <ScalarProperty Name="PG_percentage" ColumnName="PG_percentage" />
+          <ScalarProperty Name="PG_yop" ColumnName="PG_yop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="forgots">
+      <EntityTypeMapping TypeName="project1Model.forgot">
+        <MappingFragment StoreEntitySet="forgot">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emailid" ColumnName="emailid" />
+          <ScalarProperty Name="securityquestion" ColumnName="securityquestion" />
+          <ScalarProperty Name="securityanswer" ColumnName="securityanswer" />
+          <ScalarProperty Name="newpassword" ColumnName="newpassword" />
+          <ScalarProperty Name="confirmpassword" ColumnName="confirmpassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="logins">
+      <EntityTypeMapping TypeName="project1Model.login">
+        <MappingFragment StoreEntitySet="login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="emailid" ColumnName="emailid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="signups">
+      <EntityTypeMapping TypeName="project1Model.signup">
+        <MappingFragment StoreEntitySet="signup">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="mobileno" ColumnName="mobileno" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="emailid" ColumnName="emailid" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="confirmpassword" ColumnName="confirmpassword" />
+          <ScalarProperty Name="securityquestion" ColumnName="securityquestion" />
+          <ScalarProperty Name="securityanswer" ColumnName="securityanswer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="skills">
+      <EntityTypeMapping TypeName="project1Model.skill">
+        <MappingFragment StoreEntitySet="skills">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="primary_skills" ColumnName="primary_skills" />
+          <ScalarProperty Name="other_skills" ColumnName="other_skills" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="works">
+      <EntityTypeMapping TypeName="project1Model.work">
+        <MappingFragment StoreEntitySet="work">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="previous_emp_comp_name" ColumnName="previous_emp_comp_name" />
+          <ScalarProperty Name="year_exp" ColumnName="year_exp" />
+          <ScalarProperty Name="work_domain" ColumnName="work_domain" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="leaves">
+      <EntityTypeMapping TypeName="project1Model.leave">
+        <MappingFragment StoreEntitySet="leave">
+          <ScalarProperty Name="ApplyforLeave" ColumnName="ApplyforLeave" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="enddate" ColumnName="enddate" />
+          <ScalarProperty Name="startdate" ColumnName="startdate" />
+          <ScalarProperty Name="typeofleave" ColumnName="typeofleave" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="raises">
+      <EntityTypeMapping TypeName="project1Model.raise">
+        <MappingFragment StoreEntitySet="raise">
+          <ScalarProperty Name="des" ColumnName="des" />
+          <ScalarProperty Name="shortdes" ColumnName="shortdes" />
+          <ScalarProperty Name="precontim" ColumnName="precontim" />
+          <ScalarProperty Name="curloc" ColumnName="curloc" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoleMasters">
+      <EntityTypeMapping TypeName="project1Model.RoleMaster">
+        <MappingFragment StoreEntitySet="RoleMaster">
+          <ScalarProperty Name="RollName" ColumnName="RollName" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRolesMappings">
+      <EntityTypeMapping TypeName="project1Model.UserRolesMapping">
+        <MappingFragment StoreEntitySet="UserRolesMapping">
+          <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="reimburses">
+      <EntityTypeMapping TypeName="project1Model.reimburse">
+        <MappingFragment StoreEntitySet="reimburse">
+          <ScalarProperty Name="segstin" ColumnName="segstin" />
+          <ScalarProperty Name="remarks" ColumnName="remarks" />
+          <ScalarProperty Name="baamnt" ColumnName="baamnt" />
+          <ScalarProperty Name="gstamnt" ColumnName="gstamnt" />
+          <ScalarProperty Name="bamnt" ColumnName="bamnt" />
+          <ScalarProperty Name="bd" ColumnName="bd" />
+          <ScalarProperty Name="bno" ColumnName="bno" />
+          <ScalarProperty Name="ct" ColumnName="ct" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

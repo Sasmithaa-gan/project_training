@@ -1,0 +1,69 @@
+﻿@model project1.Models.skill
+
+@{
+    ViewBag.Title = "skilldetails";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        /* dl.dl-horizontal {
+            padding-left: 40%;
+        }*/
+
+
+        dt {
+            color: darkblue;
+        }
+
+        dd {
+            color: black;
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <h2 style="color:black" align="center"><b>Skill Details</b></h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.primary_skills)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.primary_skills)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.other_skills)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.other_skills)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.basic.empname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.basic.empname)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @if (Roles.IsUserInRole("Manager"))
+        {
+            @Html.ActionLink("Edit", "Edit3", new { id = Model.id })
+        }
+        <br />
+        @Html.ActionLink("Back to List", "Pagefilter", "Register")
+    </p>
+    </body>
+</html>
+

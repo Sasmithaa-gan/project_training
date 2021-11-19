@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="10d6f466df3c4254906792becb66aad2" Name="Diagram1">
+        <EntityTypeShape EntityType="project1Model.basic" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="project1Model.department" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="project1Model.education" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="project1Model.forgot" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="project1Model.login" Width="1.5" PointX="3.125" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="project1Model.signup" Width="1.5" PointX="7.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="project1Model.skill" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="project1Model.work" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="project1Model.FK__basic__deptid__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="project1Model.FK__education__empid__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="project1Model.FK__skills__empid__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="project1Model.FK__work__empid__31EC6D26" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="project1Model.leave" Width="1.5" PointX="5.25" PointY="14.125" />
+        <EntityTypeShape EntityType="project1Model.raise" Width="1.5" PointX="5.25" PointY="11" />
+        <AssociationConnector Association="project1Model.FK__leave__empid__37A5467C" />
+        <AssociationConnector Association="project1Model.FK__raise__empid__3A81B327" />
+        <EntityTypeShape EntityType="project1Model.RoleMaster" Width="1.5" PointX="11.625" PointY="1.625" />
+        <EntityTypeShape EntityType="project1Model.UserRolesMapping" Width="1.5" PointX="9.5" PointY="1.5" />
+        <AssociationConnector Association="project1Model.FK__UserRoles__RoleI__403A8C7D" />
+        <AssociationConnector Association="project1Model.FK__UserRoles__UserI__3F466844" />
+        <EntityTypeShape EntityType="project1Model.reimburse" Width="1.5" PointX="5.25" PointY="18.375" />
+        <AssociationConnector Association="project1Model.FK__reimburse__empid__4316F928" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

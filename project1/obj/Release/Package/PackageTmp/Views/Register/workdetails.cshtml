@@ -1,0 +1,77 @@
+﻿@model project1.Models.work
+
+@{
+    ViewBag.Title = "workdetails";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        /* dl.dl-horizontal {
+            padding-left: 40%;
+        }*/
+
+
+        dt {
+            color: darkblue;
+        }
+
+        dd {
+            color: black;
+            background-color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h2 style="color:black" align="center"><b>Work Details</b></h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.previous_emp_comp_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.previous_emp_comp_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.year_exp)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.year_exp)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.work_domain)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.work_domain)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.basic.empname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.basic.empname)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+        @if (Roles.IsUserInRole("Manager"))
+        {
+
+            @Html.ActionLink("Edit", "Edit2", new { id = Model.id })
+        }
+        <br />
+        @Html.ActionLink("Back to List", "Pagefilter", "Register")
+    </p>
+</body>
+</html>

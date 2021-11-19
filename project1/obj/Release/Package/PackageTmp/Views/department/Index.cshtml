@@ -1,0 +1,90 @@
+﻿@model IEnumerable<project1.Models.department>
+@using project1.Models;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/sidebar.cshtml";
+}
+<html>
+<head>
+    <style>
+        ol.c {
+            list-style-type: square;
+        }
+
+        
+        .blink {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2d38be;
+            transition: 0.5s;
+        }
+    </style>
+
+</head>
+<body>
+    <h2 style="color:black" align="center"><b>Department List</b></h2>
+    <p id="blink" style="color:red;font-size:large"><b>Click here to know about employees in each department! </b></p>
+    <script type="text/javascript">
+        var blink = document.getElementById('blink');
+        setInterval(function() {
+            blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+        }, 1500);
+    </script>
+    <img src="https://www.consulting.us/illustrations/news/detail/2020-07-16-092732248-KPMG-US-announces-new-management-team.jpg" align="right" height="300" width="500" />
+
+    <ol class="c">
+
+        @foreach (department Dept in @Model)
+
+        {
+
+            <li>
+
+                @Html.ActionLink(Dept.dept_name, "Index", "dept_employee", new { dept_id = Dept.dept_id }, null)
+
+            </li>
+
+
+        }
+    </ol>
+
+    <h2 style="color:darkblue"><b>ADVISORY SERVICES:</b></h2>
+    <p>
+        <img src="https://assets.kpmg/is/image/kpmg/US-advisory-three-people-meeting:cq5dam.web.440.280" style="float: left" height="100" width="100" />
+        With the world constantly and rapidly changing, the future is full of realigned priorities. At KPMG in India, we press on looking for sustainable growth, staying in shape and preparing for a new landscape. Partnering with our clients, we develop tailored and thorough recommendations in collaboration with sector and technical experts, bringing among the best minds from across the vast KPMG network.
+
+        By working in multi-disciplinary teams, we deliver holistic thinking and insights helping clients in transforming their organization, no matter what their primary challenges are - from improving performance, to optimizing risk, to restructuring their operations or seizing new opportunities.
+    </p>
+    <br />
+
+    <h2 style="color:darkblue"><b>AUDIT SERVICES:</b></h2>
+
+    <p>
+        <img src="https://assets.kpmg/is/image/kpmg/digits-displayed-digital-screen:cq5dam.web.512.203" style="float: right" height="100" width="100" />
+        Our relentless focus on Audit Quality is at the heart of our business. In these uncertain times, it's never been more critical to inspire confidence and build trust among investors, clients, our people, capital markets and the communities we serve. Our Audit teams know that there is no status quo when it comes to quality - we are on a continuous mission to drive sustainable improvement to uphold the highest levels of quality and trust.
+    </p>
+
+
+    <br />
+    <h2 style="color:darkblue"><b>TAX SERVICES:</b></h2>
+    <p>
+        <img src="https://assets.kpmg/is/image/kpmg/hand-and-mouse-on-desktop:cq5dam.web.512.203" style="float: left" height="100" width="100" />
+        As rapid globalization and increased competition continues, tax is playing a vital role in shaping political and business agendas. In this new, ever-changing world of tax, clients rely on our tax teams to help them achieve their business objectives.
+
+        Our professionals are equipped to decisively deliver new ways of thinking, big-picture perspectives, and acute insights to help clients make informed choices. You’ll play an integral role in the business, form important relationships and advise on key decisions in boardrooms around the globe.
+
+
+    </p>
+    <br />
+    <br />
+    <h2 style="color:darkblue"><b>CONSULTING SERVICES:</b></h2>
+    <p>
+        <img src="https://assets.kpmg/is/image/kpmg/business-people-looking-over-plans:cq5dam.web.512.341" style="float: left" height="100" width="100" />
+        KGS Consulting provides advisory services to member firms on business transformation journeys across various functions – Finance, Operations, Procurement, Supply Chain, Sales & Marketing, Human Resources & Information Technology. Some of our priority sectors are Financial Services, Healthcare & Life Sciences, Industrial Manufacturing, Consumer Markets, Telecom, Media & Technology, and Energy & Natural Resources.
+    </p>
+    @*<img src="https://images.slideplayer.com/18/6202562/slides/slide_4.jpg" style="width:100%" />*@
+
+
+</body>
+</html>
